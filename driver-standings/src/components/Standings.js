@@ -45,18 +45,22 @@ const Standings = () => {
         <div className="standings">
           <StyledHeading>Standings ({title})</StyledHeading>
           <StyledDriverContainer>
-            <Driver heading />
-            {drivers.map((driver, index) => (
-              <Driver
-                key={index}
-                id={index}
-                position={driver.position}
-                points={driver.points}
-                name={`${driver.Driver.givenName} ${driver.Driver.familyName}`}
-                manufacturer={driver.Constructors[0].name}
-                openModal={openModal}
-              />
-            ))}
+            <thead>
+              <Driver heading />
+            </thead>
+            <tbody>
+              {drivers.map((driver, index) => (
+                <Driver
+                  key={index}
+                  id={index}
+                  position={driver.position}
+                  points={driver.points}
+                  name={`${driver.Driver.givenName} ${driver.Driver.familyName}`}
+                  manufacturer={driver.Constructors[0].name}
+                  openModal={openModal}
+                />
+              ))}
+            </tbody>
           </StyledDriverContainer>
           <Modal
             isOpen={modalIsOpen}
@@ -97,8 +101,9 @@ const Standings = () => {
   );
 };
 
-const StyledDriverContainer = styled.div`
+const StyledDriverContainer = styled.table`
   width: 50vw;
+  border-collapse: collapse;
 `;
 
 const modalStyles = {

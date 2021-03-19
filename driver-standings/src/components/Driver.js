@@ -11,10 +11,10 @@ const Driver = ({
 }) => {
   return (
     <StyledDriver heading={heading}>
-      <StyledData width="10" colorWhite background="black">
+      <StyledData colorWhite background="black">
         {position}
       </StyledData>
-      <StyledData width="15">{points}</StyledData>
+      <StyledData>{points}</StyledData>
       <StyledData
         colorWhite
         background="purple"
@@ -24,9 +24,7 @@ const Driver = ({
       >
         {name}
       </StyledData>
-      <StyledData width="40" fontWeightBold>
-        {manufacturer}
-      </StyledData>
+      <StyledData fontWeightBold>{manufacturer}</StyledData>
     </StyledDriver>
   );
 };
@@ -42,14 +40,12 @@ const handleColorType = (background) => {
   }
 };
 
-const StyledDriver = styled.div`
-  display: flex;
+const StyledDriver = styled.tr`
   border-bottom: ${(props) =>
     props.heading ? "3px solid #fff" : "1px solid #fff"};
 `;
 
-const StyledData = styled.div`
-  width: ${(props) => (props.width ? `${props.width}%` : "100%")};
+const StyledData = styled.td`
   padding: 5px;
   text-align: ${(props) => (props.textAlignLeft ? "left" : "right")};
   font-weight: ${(props) => (props.fontWeightBold ? "bold" : "400")};
