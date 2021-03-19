@@ -1,10 +1,19 @@
-import React from 'react';
+import Standings from "./components/Standings";
+import styled from "styled-components";
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <StyledApp>
+      <Standings />
+    </StyledApp>
   );
 }
+
+const StyledApp = styled.div`
+  font-family: "Open Sans", sans-serif;
+
+  display: flex;
+  justify-content: center;
+`;
 
 export default App;
