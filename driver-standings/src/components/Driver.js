@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const Driver = ({
   id,
-  position,
-  points,
-  name,
-  constructor,
+  position = "#",
+  points = "Pts.",
+  name = "DRIVER",
+  constructor = "c",
   heading = false,
   openModal,
 }) => {
@@ -19,8 +19,8 @@ const Driver = ({
         colorWhite
         background="purple"
         textAlignLeft
-        cursorPointer={id ? true : false}
-        onClick={() => (id ? openModal({ id }) : null)}
+        cursorPointer={heading ? false : true}
+        onClick={() => (heading ? null : openModal(id))}
       >
         {name}
       </StyledData>

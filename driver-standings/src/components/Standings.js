@@ -8,7 +8,7 @@ import loading from "../assets/loading.gif";
 const Standings = () => {
   const [title, setTitle] = useState("Title");
   const [drivers, setDrivers] = useState(null);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentDriver, setCurrentDriver] = useState(null);
 
   useEffect(() => {
@@ -31,12 +31,12 @@ const Standings = () => {
   function openModal(driverId) {
     const driverStandings = drivers;
 
-    setCurrentDriver(driverStandings[driverId.id - 1]);
-    setIsOpen(true);
+    setCurrentDriver(driverStandings[driverId]);
+    setModalIsOpen(true);
   }
 
   function closeModal() {
-    setIsOpen(false);
+    setModalIsOpen(false);
   }
 
   return (
@@ -45,17 +45,11 @@ const Standings = () => {
         <div className="standings">
           <StyledHeading>Standings ({title})</StyledHeading>
           <StyledDriverContainer>
-            <Driver
-              position="#"
-              points="Pts."
-              name="DRIVER"
-              constructor="CONSTRUCTOR"
-              heading
-            />
+            <Driver heading />
             {drivers.map((driver, index) => (
               <Driver
                 key={index}
-                id={index + 1}
+                id={index}
                 position={driver.position}
                 points={driver.points}
                 name={`${driver.Driver.givenName} ${driver.Driver.familyName}`}
