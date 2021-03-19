@@ -53,7 +53,7 @@ const Standings = () => {
                 position={driver.position}
                 points={driver.points}
                 name={`${driver.Driver.givenName} ${driver.Driver.familyName}`}
-                constructor={driver.Constructors[0].name}
+                manufacturer={driver.Constructors[0].name}
                 openModal={openModal}
               />
             ))}

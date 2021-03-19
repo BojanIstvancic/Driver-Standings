@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const Driver = ({
-  id,
+  id = 0,
   position = "#",
   points = "Pts.",
   name = "DRIVER",
-  constructor = "c",
+  manufacturer = "CONSTRUCTOR",
   heading = false,
   openModal,
 }) => {
@@ -25,7 +25,7 @@ const Driver = ({
         {name}
       </StyledData>
       <StyledData width="40" fontWeightBold>
-        {constructor}
+        {manufacturer}
       </StyledData>
     </StyledDriver>
   );
